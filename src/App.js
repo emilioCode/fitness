@@ -1,17 +1,22 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import React from 'react'
 import Card from './components/Card';
+
+import exerciseImg from './components/images/exercise.png';
+
 class App extends React.Component{
   
+
   render(){
     return (
-    //   <div>
-    //     <h1>App works!</h1>
-    //     <p>This app  runs with Reactjs.</p>
-    //     <Card/>
-    // </div>
-    <Card/>
+      <Card 
+        title='Technique Guides' 
+        description='Learn amazing street workout and calisthenics'
+        img={exerciseImg}
+        leftColor='#A74CF2'
+        rightColor='#617BFB'
+      />
     )
   }
 }
