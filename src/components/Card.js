@@ -1,6 +1,5 @@
 import React from 'react';
-import exerciseImg from './images/exercise.png';
-import circlesImg from './images/circles.png';
+import circlesImg from '../images/circles.png';
 import './styles/Card.css';
 
 class Card extends React.Component{
@@ -8,7 +7,7 @@ class Card extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            image: 'https://www.seekpng.com/png/detail/34-347127_charmander-vector-transparent-pokemon-charmander-transparent.png'
+            image: ''
         }
     }
 
@@ -17,7 +16,7 @@ class Card extends React.Component{
             this.setState({
                 image: this.props.img
             });
-        },5000)
+        },1000)
     }
     
     render(){
