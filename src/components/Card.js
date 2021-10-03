@@ -11,26 +11,27 @@ class Card extends React.Component{
         }
     }
 
-    componentDidMount(){
-        setTimeout(()=>{
-            this.setState({
-                image: this.props.img
-            });
-        },1000)
-    }
+    // componentDidMount(){
+    //     setTimeout(()=>{
+    //         this.setState({
+    //             image: this.props.img
+    //         });
+    //     },1000)
+    // }
     
     render(){
         const { title, description, img, leftColor, rightColor } = this.props;
         return (
-           <div className="card mx-auto Fitness-Card"
+           <div className="card mx-auto Fitness-Card margin-bottonDiv" 
            style={{
             backgroundImage:`url(${circlesImg}), linear-gradient(to right, ${leftColor}, ${rightColor})`
+            
            }}
            >
                <div className="card-body">
                    <div className="row center">
                         <div className="col-6">
-                            <img src={this.state.image} className="float-right"/>
+                            <img src={img} className="float-right" alt=""/>
                         </div>
                         <div className="col-6 Fitness-Card-Info">
                             <h1>{title}</h1>
