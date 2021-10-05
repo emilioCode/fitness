@@ -1,5 +1,6 @@
 import React from 'react'
-import Card from '../components/Card';
+// import Card from '../components/Card';
+import ExcerciseList from '../components/ExerciseList';
 
 // import exerciseImg from '../images/exercise.png';
 import Welcome from  '../components/Welcome';
@@ -42,17 +43,20 @@ class Exercises extends React.Component{
                 message = "Let's workout to get someone gains!"
             />
             {
-                this.state.data.map((e)=>{
-                    return(
-                        <Card key={e.id} 
-                        title={e.title}
-                        description={e.description}
-                        img={e.img} 
-                        leftColor={e.leftColor}
-                        rightColor={e.rightColor}
-                        />
-                    )
-                })
+                <ExcerciseList data={this.state.data}/>
+                
+                // this.state.data.map((e)=>{
+                //     return(
+                //         <Card key={e.id} 
+                //         title={e.title}
+                //         description={e.description}
+                //         img={e.img} 
+                //         leftColor={e.leftColor}
+                //         rightColor={e.rightColor}
+                //         />
+                //     )
+                // })
+
                 // <Card 
                 // title='Technique Guides' 
                 // description='Learn amazing street workout and calisthenics'
