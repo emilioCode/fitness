@@ -1,4 +1,5 @@
 import React from 'react'
+import AddButton from '../components/AddButton';
 // import Card from '../components/Card';
 import ExcerciseList from '../components/ExerciseList';
 
@@ -42,8 +43,10 @@ class Exercises extends React.Component{
                 title = 'Hello Manuel!'
                 message = "Let's workout to get someone gains!"
             />
+            <ExcerciseList data={this.state.data}/>
+            <AddButton to="/exercise/add" alt="exercise"/>
             {
-                <ExcerciseList data={this.state.data}/>
+                
                 
                 // this.state.data.map((e)=>{
                 //     return(
@@ -64,7 +67,7 @@ class Exercises extends React.Component{
                 // leftColor='#A74CF2'
                 // rightColor='#617BFB'
                 // />
-            }
+             }
 
         </div>
         )
