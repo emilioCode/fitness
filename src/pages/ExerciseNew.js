@@ -1,9 +1,16 @@
 import React from 'react'
 
 class ExerciseNew extends React.Component{
+
+
+    handleClick=()=>{
+        console.log(this.props)
+    }
     render(){
         return(
-            <h1>ExerciseNew's Component</h1>
+            <button onClick={this.handleClick}>
+                Send
+            </button>
         )
     }
 }
