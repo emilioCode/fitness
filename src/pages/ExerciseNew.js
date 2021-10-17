@@ -1,53 +1,44 @@
 import React from 'react'
+import ExerciseForm from '../components/ExerciseForm';
+import Card from '../components/Card';
 
 class ExerciseNew extends React.Component{
 
-    state = {}
-    handleSubmit= e =>{
-        e.preventDefault()
-        console.log(this.state)
+    state = {
+        form:{
+            key:'',
+            title:'',
+            description:'',
+            img:'',
+            leftColor:'',
+            rightColor:''
+        }
     }
     handleChange=(e)=>{
-        // console.log(e.target.name + ": "+e.target.value)
-        let partialState = {}
-        partialState[e.target.name]= e.target.value
-        this.setState(partialState)
+        this.setState({
+            form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value
+            }
+        })
+        console.log(this.state.form)
     }
-    render(){
-        return(
-            <div className="container">
-                <form
-                onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <input type="text" className="form-control" placeholder="title" name="title"
-                         value={this.state.title} onChange={this.handleChange}></input>
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control" placeholder="description" name="description"
-                         value={this.state.description} onChange={this.handleChange}></input>
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control" placeholder="img" name="img"
-                         value={this.state.img} onChange={this.handleChange}></input>
-                    </div>
-                    <div className="form-row">
-                        <div className="col">
-                            <input type="text" className="form-control" placeholder="leftColor" name="leftColor"
-                             value={this.state.leftColor} onChange={this.handleChange}></input>
-                        </div>
-                        <div className="col"> 
-                            <input type="text" className="form-control" placeholder="rightColor" name="rightColor"
-                             value={this.state.rightColor} onChange={this.handleChange}></input>
-                        </div>
-                    </div>
 
-            <button type="submit" className="btn btn-primary float-right">
-                Submit
-            </button>
-                </form>
+    render(){
+        return (
+            
+            <div className="row" >
+                <div className="col-sm" style={{margin:"5px 0px 0px 0px"}}>
+                    <Card {...this.state.form}/>
+                </div>
+                <div className="col-sm" style={{margin:"5px 0px 0px 0px"}}>
+                    <ExerciseForm onChange={this.handleChange} form={this.state.form}/>
+                </div>
             </div>
         )
     }
+        
+    
 }
 
 export default ExerciseNew;
