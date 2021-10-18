@@ -4,11 +4,13 @@ import AddButton from '../components/AddButton';
 import ExcerciseList from '../components/ExerciseList';
 // import exerciseImg from '../images/exercise.png';
 import Welcome from  '../components/Welcome';
-
+import Loading from  '../components/Loading';
 class Exercises extends React.Component{
     
     state = {
-        data: []
+        data: [],
+        loading:false,
+        error:null
         //    data: [{
         //     "id": 1,
         //     "title": "Technique Guides",
@@ -38,12 +40,26 @@ class Exercises extends React.Component{
     }
 
     fetchExercises = async () =>{
-        let res  = await fetch('http://localhost:8000/api/exercises')
-        let data = await res.json()
-        // console.log(data)
-        this.setState({
-            data
-        })
+        try {
+            this.setState({
+                loading: true
+            })
+            let res  = await fetch('http://localhost:8000/api/exercises')
+            let data = await res.json()
+            // console.log(data)
+            this.setState({
+                data,
+                loading: false
+            })
+        } catch (error) {
+            this.setState({
+                data:[],
+                loading: false,
+                error
+            })
+            console.log(this.state.error)
+        }
+
     
     }
 
@@ -54,6 +70,7 @@ class Exercises extends React.Component{
                 title = 'Hello Manuel!'
                 message = "Let's workout to get someone gains!"
             />
+            <Loading visible={this.state.loading}/>
             <ExcerciseList data={this.state.data}/>
             <AddButton to="/exercise/new" alt="exercise"/>
             {

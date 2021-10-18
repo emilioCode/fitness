@@ -6,7 +6,7 @@ class ExerciseNew extends React.Component{
 
     state = {
         form:{
-            key:'',
+            key:0,
             title:'',
             description:'',
             img:'',
@@ -14,6 +14,7 @@ class ExerciseNew extends React.Component{
             rightColor:''
         }
     }
+
     handleChange=(e)=>{
         this.setState({
             form:{
@@ -24,6 +25,11 @@ class ExerciseNew extends React.Component{
         console.log(this.state.form)
     }
 
+    handleSubmit= e =>{
+        e.preventDefault()
+        console.log(this.state)
+    }
+
     render(){
         return (
             
@@ -32,7 +38,11 @@ class ExerciseNew extends React.Component{
                     <Card {...this.state.form}/>
                 </div>
                 <div className="col-sm" style={{margin:"5px 0px 0px 0px"}}>
-                    <ExerciseForm onChange={this.handleChange} form={this.state.form}/>
+                    <ExerciseForm 
+                    onChange={this.handleChange} 
+                    onSubmit={this.handleSubmit}
+                    form={this.state.form}
+                    />
                 </div>
             </div>
         )

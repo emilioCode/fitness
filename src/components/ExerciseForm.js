@@ -3,17 +3,15 @@ import React from 'react'
 class ExerciseForm extends React.Component{
 
     state = {}
-    handleSubmit= e =>{
-        e.preventDefault()
-        console.log(this.state)
-    }
+
+
 
     render(){
-        const { onChange, form }  = this.props;
+        const { onChange, onSubmit, form }  = this.props;
         return(
             <div className="container">
                 <form
-                onSubmit={this.handleSubmit}>
+                onSubmit={onSubmit}>
                     <div className="form-group">
                         <input type="text" className="form-control" placeholder="title" name="title"
                          value={form.title} onChange={onChange}></input>
