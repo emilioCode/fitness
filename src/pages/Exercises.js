@@ -46,7 +46,7 @@ class Exercises extends React.Component{
             })
             let res  = await fetch('http://localhost:8000/api/exercises')
             let data = await res.json()
-            // console.log(data)
+            console.log(data)
             this.setState({
                 data,
                 loading: false
