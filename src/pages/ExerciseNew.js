@@ -3,6 +3,7 @@ import ExerciseForm from '../components/ExerciseForm';
 import Card from '../components/Card';
 import FatalError from './500';
 import NotFound from './404';
+import Loading from '../components/Loading';
 
 class ExerciseNew extends React.Component{
 
@@ -65,6 +66,9 @@ class ExerciseNew extends React.Component{
     }
 
     render(){
+        if(this.state.loading)
+            return <Loading visible={true}/>
+
         if(this.state.error)
             return <FatalError/>
 
