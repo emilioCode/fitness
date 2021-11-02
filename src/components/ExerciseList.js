@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 
 const ExcerciseList = ({data})=>(
-    <div>
+    <React.Fragment>
     {
         data.map((e)=>(
         <Card key={e.id} 
@@ -14,7 +14,7 @@ const ExcerciseList = ({data})=>(
         /> 
         ))
     }
-    </div>
+    </React.Fragment>
 )
 // function ExcerciseList(props){
 //     return (

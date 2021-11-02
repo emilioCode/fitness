@@ -65,7 +65,7 @@ class Exercises extends React.Component{
 
     render(){
         return(
-        <div>
+        <React.Fragment>
             <Welcome 
                 title = 'Hello Manuel!'
                 message = "Let's workout to get someone gains!"
@@ -97,7 +97,7 @@ class Exercises extends React.Component{
                 // />
              }
 
-        </div>
+        </React.Fragment>
         )
     }
 }
